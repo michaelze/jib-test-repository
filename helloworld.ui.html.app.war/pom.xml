@@ -43,7 +43,16 @@
 			 	<plugin>
 			 	<artifactId>maven-war-plugin</artifactId>
 				 	<configuration>
+					 	<!-- this works -->
 				 		<warName>uihtml</warName>
+
+						 <!--
+							 this causes 
+							[ERROR] Failed to execute goal com.google.cloud.tools:jib-maven-plugin:2.4.0:build (default) on project helloworld.ui.html.app.war: Obtaining project
+									build output files failed; make sure you have compiled your project before trying to build the image. (Did you accidentally run
+									"mvn clean jib:build" instead of "mvn clean compile jib:build"?): /path/to/src/jib-test-repository/helloworld.ui.html.app.war/target/${ui.html.war.name}.war -> [Help 1]
+						 -->
+				 		<!-- <warName>${ui.html.war.name}</warName>	 -->
 				 	</configuration>
 			 	</plugin>
 			</plugins>
@@ -63,7 +72,7 @@
 								<image>tomcat:9-jdk11</image>
 							</from>
 							<to>
-								<image>padyx/testimage</image>
+								<image>changeme/testimage</image>
 							</to>
 						</configuration>
 					</plugin>
